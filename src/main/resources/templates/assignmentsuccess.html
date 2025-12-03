@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<html>
+    <head>
+        <meta charset="ISO-8859-1">
+        <title>Assignments Added</title>
+        <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/3.4.1/css/bootstrap.min.css}" />
+        <link th:rel="stylesheet" th:href="@{/success.css}" />
+
+        <style>
+            body { padding: 20px; text-align: center; }
+        </style>
+    </head>
+
+    <body>
+         <!-- Navigation -->
+        <div class="nav-buttons">
+            <a class="btn btn-primary" href="/assignmentlist">Assignment List</a>
+            <a class="btn btn-success" href="/add">Add Another</a>
+        </div>
+
+        <h1>Assignment Added</h1>
+        <h3 th:text="${message}"></h3>
+</html>

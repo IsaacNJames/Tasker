@@ -1,0 +1,20 @@
+Making a form:
+    https://www.youtube.com/watch?v=GMNGPry979k
+
+Database:
+    https://www.youtube.com/watch?v=msj3kLOLC4Q
+    At 7:02 did not add autowired
+
+Tables Interesting:
+    https://datatables.net/
+
+
+spring.application.name=AssignmentsTasks
+spring.datasource.url=jdbc:h2:file:C:/h2db/user_data
+spring.datasource.driver-class-name=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+spring.h2.console.enable=true
+spring.h2.console.path=/h2
+spring.jpa.hibernate.ddl-auto=create-drop

@@ -1,0 +1,9 @@
+body {
+  background: #006A4D;
+  background: radial-gradient(circle,#013e2e 0%, #000000 100%);
+  color: white;
+}
+th {
+  background-color: #00381e;
+  color: white;
+}

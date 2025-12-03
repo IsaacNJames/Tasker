@@ -1,0 +1,49 @@
+body {
+  background: #006A4D;
+  background: radial-gradient(circle,#013e2e 0%, #000000 100%);
+  color: white;
+}
+table {
+  border-style: inset;
+  border: 2px solid #00381e;
+  border-radius: 10px;
+}
+table, td {
+  border-style: inset;
+  border: 2px solid #00381e;
+  border-radius: 5px;
+}
+th {
+  background-color: #00381e;
+  border-style: inset;
+  border: 2px solid #00381e;
+  color: white;
+}
+tr{ background-color: #006A4D;
+  border-style: inset;
+  border: 2px solid #00381e;
+  border-radius: 5px;
+}
+tr:nth-child(even) {background-color: #004734;} 
+
+select option  {
+  background-color: #00381e;
+  border-style: inset;
+  border: 2px solid #69BE28;
+  border-radius: 5px;
+  color: white;
+}
+select.form-control {
+    background-color: #00381e;
+    border-style: inset;
+  border: 2px solid #69BE28;
+  border-radius: 5px;
+    color: white;
+}
+select.form-control option:focus {
+    border-color: #198754;
+    border-style: inset;
+    border: 2px solid #69BE28;
+    border-radius: 5px;
+    box-shadow: 0 0 0 0.25rem rgb(25 135 84 / 25%);
+}

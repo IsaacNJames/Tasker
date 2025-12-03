@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <meta charset="ISO-8859-1">
+        <title>Add Assignment</title>
+        <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/3.4.1/css/bootstrap.min.css}" />
+        <link th:rel="stylesheet" th:href="@{/index.css}" />
+
+        <style>
+            body { padding: 20px; }
+            .form-container { max-width: 500px; margin: auto; }
+         </style>
+    </head>
+    <body>
+        <div class="container form-container">
+
+            <!-- Navigation -->
+            <div class="nav-buttons">
+                <a class="btn btn-primary" href="/assignmentlist">Assignment List</a>
+                <a class="btn btn-success" href="/add">Add Assignment</a>
+            </div>
+
+            <h1>Add an Assignment</h1>
+
+            <form action="/assignmentsuccess" method="post">
+                <div class="form-group">
+                    <label>Assignment Name:</label>
+                    <input class="form-control" type="text" name="aname" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Class:</label>
+                    <input class="form-control" type="text" name="cname" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Description:</label>
+                    <input class="form-control" type="text" name="desc">
+                </div>
+
+                <div class="form-group">
+                    <label>Due Date:</label>
+                    <input class="form-control" type="date" name="ddate" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Priority:</label>
+                    <select class="form-control" name="priority">
+                        <option>Low</option>
+                        <option>Medium</option>
+                      <option>High</option>
+                  </select>
+                </div>
+
+                <button class="btn btn-success btn-block" type="submit">Add Task</button>
+            </form>
+        </div>
+    </body>
+</html>

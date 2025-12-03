@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<html>
+    <head>
+        <meta charset="ISO-8859-1">
+        <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/3.4.1/css/bootstrap.min.css} " />
+        <link th:rel="stylesheet" th:href="@{/llist.css}" />
+        <title>Assignment List</title>
+        <style>
+        body { padding: 20px; }
+        .nav-buttons { margin-bottom: 20px; }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <!-- Navigation Buttons -->
+            <div class="nav-buttons">
+                <a class="btn btn-primary" href="/assignmentlist">Assignment List</a>
+                <a class="btn btn-success" href="/add">Add Assignment</a>
+            </div>
+            
+            <h1 class="text-center">My Assignments</h1>
+            <hr />
+
+            <form method="get" action="/assignmentlist" class="form-inline mb-3">
+                <label for="sort">Sort by:</label>
+                <select class="form-control ml-2" name="sort" onchange="this.form.submit()">
+                    <option value="none" th:selected="${currentSort == 'none'}">None</option>
+                    <option value="dueDateAsc" th:selected="${currentSort == 'dueDateAsc'}">Due Date (Soonest First)</option>
+                    <option value="dueDateDesc" th:selected="${currentSort == 'dueDateDesc'}">Due Date (Latest First)</option>
+                </select>
+            </form>
+            
+            <table class="table" id="AssignmentTable">
+                <thead>
+                    <tr>
+                        <th>Complete</th>
+                        <th>Assignment</th>
+                        <th>Class</th>
+                        <th>Description</th>
+                        <th>Due Date</th>
+                        <th>Prioritty</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    <tr th:each="item : ${myassignments}">
+                        <td th:text="${item.completed}">completed</td> 
+                        <td th:text="${item.aname}">Assignment Name</td>
+                        <td th:text="${item.cname}">Class</td>
+                        <td th:text="${item.desc}"></td>
+                        <td th:text="${item.ddate}"></td>
+                        <td th:text="${item.priority}"></td>
+                        <td>
+                            <a class="btn btn-info" th:href="@{/edit/{primaryKey}(primaryKey=${item.primaryKey})}">Edit</a>
+                            <a class="btn btn-danger"  th:href="@{/delete/{primaryKey}(primaryKey=${item.primaryKey})}">Delete</a>
+                            <a class="btn btn-success" th:if="${!item.completed}" th:href="@{/complete/{primaryKey}(primaryKey=${item.primaryKey})}">Complete</a>
+                            <span class="badge badge-success" th:if="${item.completed}">
+                                Completed
+                            </span>
+                            <a class="btn btn-warning" th:if="${item.completed}" th:href="@{/uncomplete/{primaryKey}(primaryKey=${item.primaryKey})}">Undo</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <script th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/3.4.1/js/bootstrap.min.js}"></script>
+    </body>
+</html>

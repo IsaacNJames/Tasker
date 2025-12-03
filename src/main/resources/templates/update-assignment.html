@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<html>
+    <head>
+        <meta charset="ISO-8859-1">
+        <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/3.4.1/css/bootstrap.min.css} " />
+        <link th:rel="stylesheet" th:href="@{/index.css}" />
+        <title>Edit Assignment</title>
+        <style>
+            body { padding: 20px; }
+            .form-container { max-width: 600px; margin: auto; }
+            .nav-buttons { margin-bottom: 20px; }
+        </style>
+        <style> 
+            select {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 4px;
+            background-color: #00381e;
+            }   
+        </style>
+    </head>
+
+    <body>
+        <div class="container form-container">
+            <!-- Navigation Buttons -->
+            <div class="nav-buttons">
+                <a class="btn btn-primary" href="/assignmentlist">Assignment List</a>
+                <a class="btn btn-success" href="/add">Add Assignment</a>
+            </div>
+            <h1 class="text-center">Edit Assignment</h1>
+            <form th:action="@{/edit/{id}(id=${myassignment.primaryKey})}" th:object="${myassignment}" method="POST">
+
+                <!--Assignment Name-->
+                <div class="form-group">
+                    <label>Assignment Name</label>
+                    <input class="form-control" type="text" th:field="*{aname}" required>
+                </div>
+
+                <!--Class Name-->
+                <div class="form-group">
+                    <label>Class</label>
+                    <input class="form-control" type="text" th:field="*{cname}">
+                </div>
+
+                <!--Description-->
+                <div class="form-group">
+                    <label>Description</label>
+                    <input class="form-control" type="text" th:field="*{desc}">
+                </div>
+
+                <!--Due Date-->
+                <div class="form-group">
+                    <label>Due Date</label>
+                    <input class="form-control" type="text" th:field="*{ddate}">
+                </div>
+
+                <!--Priority-->
+                <div class="form-group">
+                    <label>Priority</label>
+                    <select class="form-control" th:field="*{priority}">
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                    </select>
+                </div>
+
+                <br>
+                <button class="btn btn-info btn-block" type="submit">Save Changes</button>
+            </form>
+        </div>
+    </body>
+</html>
